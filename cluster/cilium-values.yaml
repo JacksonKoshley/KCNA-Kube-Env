@@ -1,0 +1,13 @@
+# Cilium for a local minikube lab.
+# kube-proxy is kept so its role can be studied in Module 01.
+kubeProxyReplacement: false
+operator:
+  replicas: 1
+ipam:
+  mode: kubernetes
+hubble:
+  enabled: true
+  relay:
+    enabled: true
+  ui:
+    enabled: true

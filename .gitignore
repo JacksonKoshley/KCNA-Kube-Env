@@ -1,0 +1,11 @@
+# Local kubeconfigs, secrets and editor files
+*.kubeconfig
+kubeconfig*
+*.pem
+*.key
+.env
+.vscode/
+.idea/
+*.swp
+.DS_Store
+tmp/
