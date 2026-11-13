@@ -1,0 +1,15 @@
+# Uses the image loaded with `minikube image load`. No imagePullPolicy is set:
+# for a tag other than :latest the default is IfNotPresent.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-v1
+  namespace: kcna-images
+  labels:
+    app: demo-app
+spec:
+  containers:
+    - name: app
+      image: demo-app:v1
+      ports:
+        - containerPort: 8080

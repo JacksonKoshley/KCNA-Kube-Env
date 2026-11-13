@@ -1,0 +1,10 @@
+# :latest (or no tag) makes the default imagePullPolicy Always.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-latest
+  namespace: kcna-images
+spec:
+  containers:
+    - name: app
+      image: demo-app:latest

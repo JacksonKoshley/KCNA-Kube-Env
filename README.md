@@ -28,6 +28,13 @@ make down      # stop the cluster (keeps state)
 make destroy   # delete the cluster
 ```
 
+Build the demo app image and load it onto every node (used from Module 02 on):
+
+```bash
+make image             # demo-app:v1
+make image VERSION=v2
+```
+
 The cluster uses its own minikube profile and kube-context named `kcna`, so it doesn't touch other clusters.
 Cluster settings live in [cluster/config.env](cluster/config.env).
 
@@ -40,7 +47,7 @@ Try the steps yourself first; answers are in each module's `solutions/` folder.
 |---|---|---|---|
 | 00 | [Setup](modules/00-setup/) | — | ✅ |
 | 01 | [Architecture](modules/01-architecture/) | D1 Core Concepts | ✅ |
-| 02 | Containerization | D1 Containerization | ⬜ |
+| 02 | [Containerization](modules/02-containerization/) | D1 Containerization | ✅ |
 | 03 | Workloads | D1 Core Concepts | ⬜ |
 | 04 | Probes and Resources | D1 Core Concepts / Scheduling | ⬜ |
 | 05 | Scheduling | D1 Scheduling / Administration | ⬜ |

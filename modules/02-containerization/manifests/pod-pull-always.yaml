@@ -1,0 +1,11 @@
+# Same image as demo-v1, but always asks the registry first.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-always
+  namespace: kcna-images
+spec:
+  containers:
+    - name: app
+      image: demo-app:v1
+      imagePullPolicy: Always

@@ -1,0 +1,8 @@
+# Single-stage build, for comparison only. Ships the whole Go toolchain and runs as root.
+FROM golang:1.26-alpine
+WORKDIR /src
+COPY go.mod main.go ./
+ARG VERSION=dev
+RUN go build -ldflags="-X main.version=${VERSION}" -o /usr/local/bin/demo-app .
+EXPOSE 8080
+CMD ["demo-app"]

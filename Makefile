@@ -1,6 +1,7 @@
 PROFILE ?= kcna
+VERSION ?= v1
 
-.PHONY: help up verify down destroy status
+.PHONY: help up verify down destroy status image
 help:  ## Show targets
 	@grep -E '^[a-z-]+:.*##' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-10s %s\n", $$1, $$2}'
 
@@ -18,3 +19,7 @@ destroy:  ## Delete the cluster
 
 status:  ## Show minikube and node status
 	minikube -p $(PROFILE) status; kubectl --context $(PROFILE) get nodes -o wide
+
+image:  ## Build demo-app:$(VERSION) and load it into every node
+	docker build -t demo-app:$(VERSION) --build-arg VERSION=$(VERSION) app
+	minikube -p $(PROFILE) image load demo-app:$(VERSION)
